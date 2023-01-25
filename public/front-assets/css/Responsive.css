@@ -1,0 +1,1008 @@
+@media only screen and (min-width: 320px) and (max-width: 767px) {
+  /*Home Page css start*/
+
+  .recruiter-items h3.tab-heading {
+    font-size: 24px;
+    margin-bottom: 0;
+  }
+  .job-recruiter .recruiter-items .nav-link.active {
+    border-left: 5px solid #f26232;
+    border-radius: 5px;
+  }
+  .recruiter-items p.tab-text {
+    font-size: 18px;
+  }
+  .footer-content {
+    display: block;
+  }
+  .footer-icon {
+    margin: 12px 20px 12px;
+  }
+  .footer-logo {
+    width: 160px;
+  }
+
+  .footer-content ul li {
+    font-size: 16px;
+  }
+  .footer-icon {
+    margin: 12px 0;
+  }
+  .footer-icon i {
+    padding: 6px;
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+  }
+
+  .index-heading {
+    font-size: 36px;
+    margin-bottom: 30px;
+  }
+  .job-trend h2 {
+    margin-bottom: 30px;
+  }
+
+  .homepage-content-first {
+    background: url("../images/mob-img2.jpg") no-repeat #0000000d !important;
+    background-size: cover !important;
+    position: relative;
+  }
+
+  .homepage-content-second {
+    background: url("../images/mob-img.jpg") no-repeat #00000038 !important;
+    background-size: cover !important;
+    position: relative;
+  }
+
+  .homepage-content-second::before.homepage-content-first::before {
+    position: absolute;
+    content: "";
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    z-index: 0;
+    background: rgba(0, 0, 0, 0.5);
+  }
+
+  .homepage-banner .carousel-indicators {
+    bottom: -40px;
+    margin-bottom: 0;
+  }
+
+  .side-box {
+    padding-top: 0;
+    text-align: left;
+  }
+
+  .side-box .learn-more-btn {
+    justify-content: normal;
+  }
+
+  .ban-bottom-links {
+    margin-top: 0;
+  }
+
+  .find-job {
+    width: 100%;
+  }
+
+  .homepage-content-second .banner-btn-box {
+    width: 100%;
+    margin: auto;
+    padding-left: 0;
+  }
+
+  .homepage-content-second .side-box {
+    text-align: left;
+    padding: 0;
+  }
+
+  .homepage-content-first,
+  .homepage-content-second {
+    padding: 65px 0 0;
+  }
+
+  .homepage-content-first h1,
+  .homepage-content-second h1 {
+    font-size: 25px;
+    color: #fff;
+  }
+
+  .homepage-content-second p {
+    text-align: left;
+  }
+
+  .homepage-content-first p,
+  .homepage-content-second p {
+    color: #ffffff;
+    font-size: 18px;
+  }
+
+  .homepage-content-first .banner-btn .register-link {
+    font-size: 13px;
+    padding-top: 7px;
+  }
+
+  .banner-btn {
+    margin-top: 35px;
+    margin-bottom: 15px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .banner-btn i {
+    font-size: 16px;
+    background: #fff;
+    color: #4b888a;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    text-align: center;
+    padding: 7px 0;
+  }
+
+  .banner-btn span {
+    font-size: 16px;
+    color: #fff;
+    font-weight: 400;
+    padding-left: 16px;
+  }
+
+  .banner-btn div:nth-child(2) {
+    margin: 20px 0;
+  }
+
+  .homepage-banner .carousel-indicators li {
+    width: 70px;
+    height: 14px;
+    margin-right: 6px;
+    margin-left: 6px;
+  }
+  .homepage-content-first p,
+  .homepage-content-second p {
+    font-size: 18px;
+  }
+  .power-today {
+    padding: 35px 0 70px;
+  }
+
+  .job-recruiter {
+    padding: 35px 0;
+  }
+
+  .homepage-content-first .col-1 {
+    display: none;
+  }
+  .homepage-content-second p {
+    width: 100%;
+  }
+
+  .homepage-content-second .learn-more-btn a {
+    padding: 10px 36px;
+  }
+
+  .Sing_In_Section {
+    height: calc(100vh - 81px);
+  }
+
+  .courses {
+    display: none;
+  }
+  .rightsec-box .rightsec-content:first-child {
+    margin: 0 0 20px 0;
+  }
+
+  .browse-courses-two {
+    margin-top: 35px !important;
+  }
+
+  .connect {
+    max-width: 400px !important;
+    width: 100%;
+  }
+
+  .search-box ul {
+    margin: 0 auto 30px;
+    max-width: 400px;
+  }
+
+  .explore-sector {
+    margin-top: 10px;
+  }
+  .user-blog h2 {
+    margin-bottom: 30px;
+  }
+
+  .support-screen-right {
+    margin-bottom: 35px;
+  }
+
+  /*Home Page css end*/
+
+  /*signup page css start*/
+
+  .account-details {
+    padding: 15px;
+    margin-bottom: 20px;
+  }
+
+  .account-details h2 {
+    font-size: 16px;
+    margin-bottom: 18px;
+  }
+
+  .sign-up {
+    padding: 28px 0;
+  }
+
+  .Seeker-tab .steps ul li {
+    margin: 20px 0 40px;
+}
+
+  /*signup page css end*/
+
+  /*job-recruiter page start*/
+
+  .register-candidate h4 {
+    font-size: 24px;
+  }
+  .register-candidate .learn-more-btn a {
+    margin: 8px 0;
+  }
+
+  .customer-success {
+    background: url(../images/success-story-mob.png) no-repeat;
+    display: flex;
+    align-items: center;
+  }
+  .success-content {
+    margin: 0 15px;
+    padding-top: 0;
+  }
+  .customer-success p {
+    color: #fff;
+    font-size: 18px;
+  }
+  .customer-success h2 {
+    color: #fff;
+    font-size: 28px;
+  }
+  .about-content {
+    margin-bottom: 20px;
+  }
+  .job-select-box select {
+    margin: 8px 0 14px;
+  }
+
+  .job-select-box select {
+    background-position-x: 98%;
+  }
+  .search-box {
+    padding: 35px 0 10px;
+  }
+  /*job-recruiter page end*/
+
+  /*job-search page start*/
+
+  .location,
+  .sector {
+    height: 130px;
+    border-radius: 0 16px;
+  }
+  .search-box-content ul li a.nav-link.active:before {
+    width: 150px;
+    height: 5px;
+    bottom: 0;
+    left: -8px;
+  }
+  .search-box-content ul li:nth-child(1) a.nav-link.active:before {
+    left: -11px;
+  }
+  .search-box-content ul li:nth-child(2) a.nav-link.active:before {
+    left: -9px;
+    width: 160px;
+  }
+
+  .search-box-content ul li a.nav-link {
+    font-size: 17px;
+    padding: 8px 0;
+  }
+  /*job-search page end*/
+
+  /*job-seeker page start*/
+  .search-btnbox .vertical-line {
+    display: none;
+  }
+  /*job-seeker page end*/
+
+  /*uploadcv page start*/
+
+  .upload-box h2, .upload-box i {
+    display: none;
+  }
+
+  .upload-data h4{font-size: 18px;}
+
+  .upload-box {
+    padding: 0px 0;
+    text-align: left;
+    border: none;
+}
+
+.upload-box p {
+  text-align: left;
+}
+  /*uploadcv page end*/
+
+/*-----*/
+
+
+
+}
+
+@media only screen and (min-width: 320px) and (max-width: 1024px) {
+  /*Home Page css start*/
+  .job-trend a {
+    padding: 2px 8px;
+    font-size: 17px;
+    margin: 4px 0;
+  }
+  .our-story {
+    display: none;
+  }
+  .logo-content {
+    display: none;
+  }
+  .connect-logo {
+    margin: 20px auto;
+    text-align: center;
+    display: block;
+  }
+  .upper_side {
+    padding-bottom: 0;
+  }
+  .explore-site {
+    justify-content: space-around;
+  }
+  .footer-icon-box,
+  .action-list ul {
+    justify-content: space-around;
+    max-width: 290px;
+    width: 100%;
+    margin: 10px auto 12px;
+  }
+  .action-list a,
+  .action-list a:hover {
+    font-size: 14px;
+  }
+  .copyright p {
+    text-align: center;
+    font-size: 14px;
+  }
+
+  /*==================================================================*/
+
+  /* common css */
+  .flex {
+    flex-direction: column;
+  }
+  .title {
+    font-size: 16px;
+    margin-bottom: 0;
+  }
+
+  .footer-top-sec {
+    padding-top: 8px;
+  }
+
+  footer .upper_side ul.flex li {
+    position: relative;
+    padding: 8px 0;
+    margin: 0;
+  }
+  footer .upper_side ul.flex li.first_depth > p:before {
+    position: absolute;
+    top: -1px;
+    right: 0;
+    padding: 5px 8px;
+    content: "\f107";
+    font-family: "FontAwesome";
+    font-weight: 900;
+    color: #fff;
+    font-size: 20px;
+    cursor: pointer;
+  }
+  footer .upper_side ul.flex li.first_depth.on > p:before {
+    transform: rotate(180deg);
+  }
+  footer .upper_side ul.flex li.first_depth > p:after {
+    display: block;
+    content: "";
+    width: 100%;
+    padding: 6px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  }
+  footer .upper_side ul.second_depth {
+    height: 0;
+    display: none;
+  }
+  footer .upper_side li.first_depth.on ul.second_depth {
+    height: auto;
+    display: block;
+  }
+
+  .footer-icon-box .footer-icon {
+    padding-right: 0;
+  }
+
+  .support-leftsec h2,
+  .support-rightsec h2 {
+    font-size: 32px !important;
+    margin-bottom: 15px;
+  }
+
+  .browse-courses-one,
+  .browse-courses-two {
+    margin-top: 30px;
+  }
+  .section-padding {
+    padding-top: 90px !important;
+  }
+
+  /*Home Page css end*/
+
+ h3.open-panel:after {
+    position: absolute;
+    /*top: -1px;*/
+    right: 0;
+    padding: 5px 8px;
+    content: "\f107";
+    font-family: "FontAwesome";
+    font-weight: 900;
+    color: red;
+    font-size: 20px;
+    cursor: pointer;
+  }
+   h3.open-panel.on:after {
+    transform: rotate(180deg);
+  }
+  .open-panel:after {
+    display: block;
+    content: "";
+    width: 100%;
+    padding: 6px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  }
+  .close-panel {
+    height: 0;
+    display: none;
+  }
+  .open-panel.on .close-panel {
+    height: auto;
+    display: block !important;
+  }
+
+
+
+
+
+
+}
+
+@media (max-width: 991px) {
+  /*Home Page css start*/
+  .man-power-menu {
+    flex-direction: column;
+  }
+  .menu-first {
+    border-bottom: 2px solid #498789;
+  }
+  .menu-Second {
+    border-bottom: 2px solid #f26232;
+  }
+  .menu-first,
+  .menu-Second,
+  .menu-three {
+    border-right: none;
+    padding: 18px 0;
+    width: 100%;
+  }
+  .menu-first ul li,
+  .menu-Second ul li,
+  .menu-three ul li {
+    padding: 0px;
+    font-size: 14px;
+  }
+  .homepage-content-first,
+  .homepage-content-second {
+    height: 450px;
+  }
+  .power-btns {
+    display: block;
+    text-align: center;
+  }
+  .power-btns a {
+    font-size: 17px;
+    margin: 0;
+  }
+
+  .power-btns a {
+    display: inline-block;
+  }
+
+  .power-button-one {
+    margin-bottom: 7px;
+  }
+  .job-recruiter .recruiter-items .nav-link {
+    padding: 0 0 0 26px;
+    margin-right: 0;
+    margin-bottom: 0;
+  }
+  .job-recruiter .job-post-tabs {
+    margin-left: 0px;
+  }
+  .job-recruiter .tab-content {
+    margin: 10px 0 10px 0;
+  }
+  .mob-order-one {
+    order: 1;
+  }
+  .mob-order-two {
+    order: 2;
+  }
+  .power-btns .power-button-one a {
+    padding: 13px 28px;
+  }
+  .learn-more-btn a,
+  .explore-sector {
+    font-size: 17px;
+  }
+  .trend {
+    padding: 0;
+    text-align: center;
+  }
+
+  /*Home Page css end*/
+  /*Sign in Page css start*/
+  .Sing_In_Form {
+    max-width: unset;
+  }
+
+  .Sing_In_Form .tab-pane {
+    width: auto;
+    margin: 0 15px;
+  }
+
+  .Sing_In_Form h2 {
+    text-align: left;
+    display: inline-block;
+  }
+
+  /*Sign in Page css end*/
+
+  /* job-recruiter page start */
+  .about-content .about-img {
+    width: 180px;
+    height: 130px;
+  }
+  .about-content h4 {
+    font-size: 25px;
+    margin: 10px 0 0;
+  }
+  .about-content p {
+    font-size: 20px;
+  }
+  .search-by p {
+    margin: 10px auto 20px;
+  }
+  /* job-recruiter page end */
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+  /*Home Page css start*/
+  .homepage-banner .carousel-indicators li {
+    width: 70px;
+    height: 14px;
+    margin-right: 6px;
+    margin-left: 6px;
+    margin-bottom: 0;
+  }
+  .manpower-support .row {
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+  .support-rightsec .support-rightsec {
+    text-align: center !important;
+  }
+  .support-rightsec {
+    padding-left: 0 !important;
+  }
+  .hide-rightsec {
+    display: inline-block !important;
+  }
+  .support-screen-right,
+  .support-screen-left {
+    max-width: 100% !important;
+  }
+  .support-screen-right {
+    margin-bottom: 30px;
+  }
+  .support-leftsec h2,
+  .support-rightsec h2 {
+    font-size: 32px !important;
+    margin-bottom: 15px;
+  }
+  .support-rightsec .browse-courses-two {
+    margin-top: 35px !important;
+  }
+  .browse-courses-one {
+    margin-top: 35px;
+  }
+  /*Home Page css end*/
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1400px) {
+  /*Home Page css start*/
+  .menu-first ul li,
+  .menu-Second ul li,
+  .menu-three ul li {
+    padding: 0px 4px;
+    font-size: 14px;
+  }
+  .menu-first {
+    padding: 6px 6px 6px 0px;
+  }
+  .menu-Second {
+    padding: 6px 6px 6px 6px;
+  }
+  .menu-three {
+    padding-left: 6px;
+  }
+  .menu-first ul li button,
+  .menu-Second ul li button,
+  .menu-three ul li button {
+    font-size: 14px;
+  }
+  .job-recruiter .tab-content {
+    margin: 10px 0 10px 0;
+  }
+  .job-recruiter .job-post-tabs {
+    margin-left: 0;
+  }
+  .job-recruiter .recruiter-items .nav-link {
+    padding: 0 0 0 20px;
+    margin-right: 0;
+  }
+  .recruiter-items h3.tab-heading {
+    font-size: 27px;
+  }
+  .job-recruiter li:nth-child(3).nav-item.recruiter-items {
+    margin-bottom: 15px;
+  }
+  .power-btns a,
+  .learn-more-btn a {
+    font-size: 20px;
+  }
+  /*Home Page css end*/
+}
+
+@media only screen and (min-width: 1024px) and (max-width: 1279px) {
+  /*Home Page css start*/
+
+  .action-list a,
+  .action-list a:hover {
+    font-size: 15px;
+  }
+
+  .support-bg {
+    max-width: 480px;
+    background-size: contain;
+  }
+
+  .courses {
+    left: 275px;
+  }
+
+  .support-rightsec {
+    padding-left: 70px;
+  }
+  .hide-rightsec {
+    display: none;
+  }
+  .homepage-banner .carousel-indicators {
+    bottom: -54px;
+  }
+  .homepage-banner .carousel-indicators li {
+    width: 70px;
+    height: 14px;
+    margin-right: 6px;
+    margin-left: 6px;
+    margin-bottom: 0;
+  }
+
+  /*Home Page css end*/
+
+  /*job-seeker page start*/
+  .search-by p {
+    margin: 10px auto 0;
+  }
+  .search-btnbox .vertical-line {
+    height: 37px;
+  }
+
+  /*job-seeker page end*/
+  /*   .Seeker-tab .steps ul li::before, .Seeker-tab .steps ul li::after {
+    left: -103px;    
+  }*/
+  /*job-recruiter page css start*/
+  .success-content {
+    max-width: 278px;
+    margin: 0 24px;
+    padding-top: 170px;
+  }
+  .customer-success p {
+    font-size: 18px;
+  }
+  .customer-success h2 {
+    font-size: 25px;
+  }
+  .index-heading {
+    font-size: 48px;
+  }
+  /*job-recruiter page css end*/
+}
+
+@media only screen and (min-width: 1280px) and (max-width: 1365px) {
+  /*Home Page css start*/
+  .index-heading {
+    font-size: 58px;
+  }
+
+  .learn-more-btn a {
+    font-size: 20px;
+  }
+
+  .homepage-banner .carousel-indicators li {
+    width: 70px;
+    height: 14px;
+    margin-right: 6px;
+    margin-left: 6px;
+    margin-bottom: 0;
+  }
+
+  /*Home Page css end*/
+
+  /*job-seeker page start*/
+
+  .search-btnbox .vertical-line {
+    height: 37px;
+  }
+
+  /*job-seeker page end*/
+
+  /*job-recruiter page css start*/
+  .success-content {
+    max-width: 340px;
+    margin: 0 24px;
+    padding-top: 180px;
+  }
+  .customer-success p {
+    font-size: 20px;
+  }
+  .customer-success h2 {
+    font-size: 30px;
+  }
+  /*job-recruiter page css end*/
+}
+
+@media only screen and (min-width: 1366px) and (max-width: 1439px) {
+  .success-content {
+    padding-top: 180px;
+    margin: 0 24px;
+  }
+  .customer-success p {
+    font-size: 20px;
+  }
+  .customer-success h2 {
+    font-size: 30px;
+  }
+}
+
+@media only screen and (min-width: 1366px) and (max-width: 1599px) {
+  /*Home Page css start*/
+  .learn-more-btn a {
+    font-size: 20px;
+  }
+  /*Home Page css end*/
+
+  /*job-seeker page start*/
+  .search-btnbox .vertical-line {
+    height: 37px;
+  }
+  /*job-seeker page end*/
+}
+
+@media only screen and (min-width: 1440px) and (max-width: 1599px) {
+  .success-content {
+    padding-top: 170px;
+  }
+  .customer-success p {
+    font-size: 20px;
+  }
+  .customer-success h2 {
+    font-size: 30px;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+  /*Home Page css start*/
+
+  .homepage-content-first {
+    background: url("../images/mob-img2.jpg") no-repeat #0000000d !important;
+    position: relative;
+    background-size: cover !important;
+  }
+
+  .homepage-content-second {
+    background: url("../images/mob-img.jpg") no-repeat #00000038 !important;
+    position: relative;
+    background-size: cover !important;
+  }
+
+  .homepage-content-second::before.homepage-content-first::before {
+    position: absolute;
+    content: "";
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    z-index: 0;
+    background: rgba(0, 0, 0, 0.5);
+  }
+
+  .side-box {
+    padding-top: 0;
+    text-align: left;
+  }
+
+  .side-box .learn-more-btn {
+    justify-content: normal;
+  }
+
+  .find-job {
+    width: 100%;
+  }
+
+  .homepage-content-second .banner-btn-box {
+    width: 100%;
+    margin: auto;
+    padding-left: 0;
+  }
+
+  .homepage-content-second .side-box {
+    text-align: left;
+    padding: 0;
+  }
+
+  .homepage-content-first,
+  .homepage-content-second {
+    padding: 50px 0;
+  }
+
+  .homepage-content-first h1,
+  .homepage-content-second h1 {
+    font-size: 40px;
+    color: #fff;
+  }
+
+  .homepage-content-second p {
+    text-align: left;
+  }
+
+  .homepage-content-first p,
+  .homepage-content-second p {
+    color: #ffffff;
+    font-size: 22px;
+  }
+
+  .homepage-content-first .banner-btn .register-link {
+    font-size: 13px;
+    padding-top: 7px;
+  }
+
+  .banner-btn {
+    margin-top: 40px;
+    margin-bottom: 15px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .ban-bottom-links {
+    margin-top: 0;
+  }
+
+  .banner-btn i {
+    font-size: 16px;
+    background: #fff;
+    color: #4b888a;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    text-align: center;
+    padding: 7px 0;
+  }
+
+  .banner-btn span {
+    font-size: 19px;
+    color: #fff;
+    font-weight: 400;
+    padding-left: 18px;
+  }
+
+  .banner-btn div:nth-child(2) {
+    margin: 20px 0;
+  }
+
+  .index-heading {
+    font-size: 48px;
+    margin-bottom: 40px !important;
+  }
+
+  .homepage-content-first .col-1 {
+    display: none;
+  }
+  .homepage-content-second p {
+    width: 100%;
+  }
+
+  .job-trend {
+    padding: 135px 0 40px;
+  }
+
+  .job-recruiter {
+    padding: 40px;
+  }
+
+  .power-today {
+    padding: 50px 0 100px;
+  }
+
+  .homepage-content-second .learn-more-btn a {
+    padding: 10px 36px;
+  }
+
+  .trend {
+    padding: 0 20px 0px;
+  }
+
+  .homepage-content-first .col-lg-5,
+  .homepage-content-second .col-lg-5 {
+    margin-left: 0 !important;
+  }
+
+  /*Home Page css end*/
+
+  /*job-search page start*/
+  .search-btnbox .vertical-line {
+    height: 37px;
+  }
+  /*job-search page end*/
+
+  /*job-recruiter page css start*/
+  .customer-success {
+    background: url(../images/success-story-mob.png) no-repeat;
+    display: flex;
+    align-items: center;
+  }
+  .success-content {
+    margin: 0 15px;
+    padding-top: 0;
+  }
+  .customer-success p,
+  .customer-success h2 {
+    color: #fff;
+  }
+  /*job-recruiter page css end*/
+}
