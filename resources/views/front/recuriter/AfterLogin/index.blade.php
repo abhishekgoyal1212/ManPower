@@ -59,7 +59,9 @@
                                     </div>
                                     <div class="Account_Details_Icon d-flex  align-items-center">
                                         <ul class="mb-0 pb-0">
-                                            <a href="{{route('Recuriter.Basket')}}"><li><p class="cart-number">0</p><img src="{{asset('front-assets/images/manpower-for-recruiter-basket-icon-new.png')}}"></li></a>
+                                            <a href="{{route('Recuriter.Basket')}}"><li><p class="cart-number">
+                                                @if($CartData == 1){{$CartData}}@endif
+                                                </p><img src="{{asset('front-assets/images/manpower-for-recruiter-basket-icon-new.png')}}"></li></a>
                                         </ul>
                                         <div class="Test">
                                             {{$current_data->first_name}}
@@ -77,14 +79,12 @@
                                         </div>
                                     </div>
                                 </div>
-        
                                 <button class="mobile-menu"><i class="fa fa-bars"></i></button>
                             </div>
                         </div>
-        
                     </div>
                 </div>
-            </div>
+        </div>
            @yield('content')
                <div class="footer-top-sec Account_Details_Footer">
                 <div class="container">

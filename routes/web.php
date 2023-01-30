@@ -12,6 +12,7 @@ use App\Http\Controllers\front\HomeController;
 use App\Http\Controllers\front\AuthControllers;
 use App\Http\Controllers\front\CondidateProfile;
 use App\Http\Controllers\front\recuriter\RecuriterController;
+use App\Http\Controllers\front\recuriter\AddToCartController;
 
 use App\Models\Recuriter;
 use GuzzleHttp\Middleware;
@@ -77,6 +78,9 @@ Route::prefix('recuriter')->controller(RecuriterController::class)->middleware('
         Route::view('recruiter/account/credits/','front/recuriter/AfterLogin/PostJob')->name('PostJob');
         Route::view('/checkout','front/recuriter/AfterLogin/checkout')->name('Checkout');
         Route::view('/about/help','front/recuriter/AfterLogin/help')->name('Help');
+        Route::controller(AddToCartController::class)->group(function(){
+            Route::post('add-to-cart','add_to_cart')->name('AddCart');
+        });
     });
 });
 /*-----------Admin Panel Login Managment--------------*/; 

@@ -66,6 +66,7 @@
     <div class="tab-pane active show" id="tabs-1" role="tabpanel">
         <div class="row">
             <div class="col-lg-4 col-12 info-credits-content">
+            <form id="cart_section">
                 <div class="info-credits-content-top">
                     <h3 class="font-weight-bold">Premium job</h3>
                     <h4 class="mb-0 font-weight-bold">£150 <span> + VAT</span></h4>
@@ -74,10 +75,15 @@
                 <input type="text" name="qty" value="1" class="input-qty">
                 <button class="qty-btn-plus" type="button"><i class="bi bi-plus-lg"></i></button>
             </div>
-            <p class="font-weight-bold mb-2">Total Price £150 <span> + VAT</span></p>
+            <input type="hideen" name="price" id="" value="150" hidden>
+            <input type="hideen" name="save" id="" value="0" hidden>
+            <input type="hideen" name="type" id="" value="Premium job" hidden>
+            
+             <p class="font-weight-bold mb-2">Total Price £150 <span> + VAT</span></p>
             
             <h6 class="font-weight-bold mb-2">Save £</h6>
             <button class="my-cart-btn">Add to basket</button>
+        </form>
 
 
             <span class="premium-jobs" id="premium-jobs-one">Premium job features <i class="fa fa-chevron-down px-1" aria-hidden="true"></i></span>
@@ -110,6 +116,7 @@
                 </ul>
             </div>
             <div class="col-lg-4 col-12 info-credits-content">
+                <form id="cart_section_secend">
                 <div class="info-credits-content-top">
                     <h3 class="font-weight-bold">Premium job</h3>
                     <h4 class="mb-0 font-weight-bold">£150 <span> + VAT</span></h4>
@@ -122,7 +129,7 @@
             
             <h6 class="font-weight-bold mb-2">Save £</h6>
             <button class="my-cart-btn">Add to basket</button>
-
+        </form>
 
             <span class="premium-jobs" id="premium-jobs-one">Premium job features <i class="fa fa-chevron-down px-1" aria-hidden="true"></i></span>
                 </div>
@@ -228,11 +235,22 @@
 
    <script>
     $(function(){
-        $(".my-cart-btn").click(function(){
-            var cart = parseInt($(".input-qty").val());
-            var cart_number = parseInt($(".cart-number").text());
-            $cart_number = $(".cart-number").text(cart+cart_number);
-        })
+        $(".my-cart-btn").click(function(event){
+            event.preventDefault();
+            var cart_data =   $("#cart_section").serialize();
+        $.ajax({
+                url : "{{route('Recuriter.AddCart')}}",
+                type: 'POST',
+                data: {
+                    "_token" : "{{csrf_token()}}", cart_data:cart_data,                
+                },
+                success: $.proxy(function(response){
+                     var count_cart_value =  Object.keys(response).length;
+                     $('.cart-number').text(count_cart_value);
+                })
+            });
     });
+});
+
 </script>
 @stop
