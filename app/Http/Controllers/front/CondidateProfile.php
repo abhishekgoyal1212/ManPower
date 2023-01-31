@@ -38,7 +38,6 @@ class CondidateProfile extends Controller
                 $candidate = new CondidateProfiles();
             }
             if($type == 'form-1'){
-                $candidate->jobseeker_id = $data->id;
                 $candidate->job_title = $inputs['job_title']; 
                 $candidate->salary = $inputs['salary']; 
                 $candidate->timing = $inputs['timing'];
@@ -51,19 +50,18 @@ class CondidateProfile extends Controller
             }
             if($type == 'form-2'){
                 // dd($inputs['employment_status']);
-                if($inputs['employment_status'] == 0){
-                    $candidate->employment_status = 0; 
-                    $candidate->notice_period = 0; 
-                }elseif($inputs['employment_status'] == 'Full-time education' || $inputs['employment_status'] == 'Unemployed'){
+                    if($inputs['employment_status'] == 0){
+                        $candidate->employment_status = 0; 
+                        $candidate->notice_period = 0; 
+                    }elseif($inputs['employment_status'] == 'Full-time education' || $inputs['employment_status'] == 'Unemployed'){
                         $candidate->employment_status = $inputs['employment_status'];
                         $candidate->notice_period = 0; 
                     }else{
                         $candidate->employment_status = $inputs['employment_status'];
                         $candidate->notice_period = $inputs['notice_period']; 
                     } 
-                    $candidate->eligible_work = $inputs['eligible_work']; 
-                    $candidate->jobseeker_id = $data->id;
-                    
+            $candidate->eligible_work = $inputs['eligible_work']; 
+                
             }
             if($candidate->save()){
             return redirect()->back();
@@ -74,7 +72,7 @@ class CondidateProfile extends Controller
     }
     public function condidate_profile()
     {
-         $city = Countries::with("City", "States")->get();
+        $city = Countries::with("City", "States")->get();
         foreach ($city as $value) {
             $status_data[] = $value->States->name;
             $city_data[] = $value->City->name;
@@ -82,11 +80,12 @@ class CondidateProfile extends Controller
         }
         $all_world_data = array_merge($status_data, $city_data, $contries_data);
         $current_data = $this->current_jobseeker_data();
-        // dd($current_data);
+        
         $candidate_data = $this->current_condidate_data();
         $candidate_exprience = CondidateExprience::where('jobseeker_id',$current_data->id)->get();
         $condidate_qualifications  = Qualifications::where('jobseeker_id',$current_data->id)->get();
         $condidate_Skills  = AllUpdateProfils::where('jobseeker_id',$current_data->id)->get();
+        $country_data = Countries::all()->toArray();
         $json_skils = '';
         $json_languges = '';
         $item = '';
@@ -103,7 +102,7 @@ class CondidateProfile extends Controller
         $job_data = json_decode($candidate_data->job_type,true);
         $sector_data = json_decode($candidate_data->sectors,true);
         } 
-        return view('front.login.candidate-profile',compact('location_data','all_world_data','candidate_data','job_data','sector_data','candidate_exprience','condidate_qualifications','json_skils','json_languges','item','current_data'));
+        return view('front.login.candidate-profile',compact('country_data','location_data','all_world_data','candidate_data','job_data','sector_data','candidate_exprience','condidate_qualifications','json_skils','json_languges','item','current_data'));
     }
     public function location(Request $req)
     {
@@ -244,4 +243,43 @@ class CondidateProfile extends Controller
         return redirect()->back();
     }
  }
+ public function candidate_about(Request $req)
+ {
+    $inputs = $req->all();
+    $data = $this->current_jobseeker_data();
+    if($data){
+        $data->first_name = $inputs['first_name'];
+        $data->last_name = $inputs['last_name'];
+        $data->mobile = $inputs['mobile'];
+        $data->country = $inputs['country'];
+        $data->state = $inputs['state'];
+        $data->city = $inputs['city'];
+        $data->save();
+        return back();
+
+    }else{
+        return back()->with('flash-error','something wrong!')->withInput();
+    }  
+   
+ }
+ public function show_state(Request $req)
+    {
+        $state = States::where('country_id',$req->country_id)->get();
+        $statedata[] = "<option value=''selected disabled> Select State </option>";
+        foreach($state as $states){
+           $statedata[] = "<option value='$states[id]'>$states[name]</option>";
+        }
+        return $statedata;
+    }
+    public function show_city(Request $req)
+    {
+        $city = City::where('state_id',$req->state_id)->get();
+        $citydata[] = "<option value=''selected disabled> Select city </option>";
+        foreach($city as $cities){
+           $citydata[] = "<option value='$cities[id]'>$cities[name]</option>";
+        }
+        return $citydata;
+    }
+   
 }
+    

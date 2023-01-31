@@ -2,18 +2,20 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="csrf-token" content="{{ csrf_token() }}" />
         <link rel="stylesheet" type="text/css" href="{{asset('front-assets/css/style.css')}}">
         <link rel="stylesheet" type="text/css" href="{{asset('front-assets/css/Responsive.css')}}">
         <link rel="stylesheet" type="text/css" href="{{asset('front-assets/css/bootstrap.min.css')}}">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.0/css/toastr.css" rel="stylesheet" />
           <!-- select2 -->
-      <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
-      <!-- select2-bootstrap4-theme -->
-      <link href="https://raw.githack.com/ttskch/select2-bootstrap4-theme/master/dist/select2-bootstrap4.css" rel="stylesheet"> <!-- for live demo page -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+        <!-- select2-bootstrap4-theme -->
+        <link href="https://raw.githack.com/ttskch/select2-bootstrap4-theme/master/dist/select2-bootstrap4.css" rel="stylesheet"> <!-- for live demo page -->
+        
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.0/js/toastr.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
         <title>@yield('title')</title>
     </head>
 <body>
@@ -70,7 +72,7 @@
                             <div class="menu-three menu-three-course jobs-mobile">
                                 <img src="https://img.icons8.com/external-tanah-basah-basic-outline-tanah-basah/20/f26232/external-user-user-tanah-basah-basic-outline-tanah-basah-7.png " class="mr-2">
                                 <ul class="list-unstyled pl-0  mb-0 dropdwon-menu">
-                                    <button class=" togel">@if(!empty($current_data)) {{$current_data->first_name}}@else Demo @endif</button>
+                                    <button class=" togel">@if(!empty($current_data)) {{ucfirst($current_data->first_name)}}@else Demo @endif</button>
                                     <div class="Demo_Jobs show_togel">
                                         <ul>
                                             <li><a href="{{route('CandidateProfile')}}">Profile and CV</a></li>
@@ -259,7 +261,6 @@
     </div>  
 </footer>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 <script src="{{asset('front-assets/js/slim.min.js')}}"></script>
 <script src="{{asset('front-assets/js/bootstrap.min.js')}}"></script>
 <script src="{{asset('front-assets/js/popper.min.js')}}"></script>

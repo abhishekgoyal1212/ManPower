@@ -9,6 +9,7 @@ use App\Http\Controllers\admin\JobSeekerController;
 use App\Http\Controllers\admin\ActiveInactiveController;
 use App\Http\Controllers\admin\PageController;
 use App\Http\Controllers\front\HomeController;
+use App\Http\Controllers\front\CoursesController;
 use App\Http\Controllers\front\AuthControllers;
 use App\Http\Controllers\front\CondidateProfile;
 use App\Http\Controllers\front\recuriter\RecuriterController;
@@ -36,7 +37,10 @@ use Illuminate\Http\Request;
 // });
 // Route::view('manpowernew','front.home.home-page')->middleware('HomePage');    
 /*-----------Front Managment--------------*/;
-    Route::get('/',[HomeController::class,'index_home'])->name('home')->middleware('HomePage');    
+    Route::get('/',[HomeController::class,'index_home'])->name('home')->middleware('HomePage');
+    Route::controller(CoursesController::class)->group(function(){
+        Route::get('/courses','courses')->name('courses');
+    });    
 Route::controller(HomeController::class)->middleware('CondidateProfile','employer')->group(function(){
     Route::controller(CondidateProfile::class)->group(function(){
     Route::post('/location-save','location')->name('front.location');
@@ -45,6 +49,10 @@ Route::controller(HomeController::class)->middleware('CondidateProfile','employe
     Route::post('/candidate-experience','candidate_experience_save')->name('CandidateExperience');
     Route::post('/candidate-qualifications','candidate_qualifications_save')->name('CandidateQualifications');
     Route::post('/candidate-skills','candidate_skills_save')->name('CandidateSkills');
+    Route::post('/candidate-about','candidate_about')->name('CandidateAbout');
+
+        Route::post('/show-state','show_state')->name('show.state');
+        Route::post('/show-city','show_city')->name('show.city');
     // Route::post('/candidate-language','candidate_language_save')->name('CandidateLanguage');
     }); 
     Route::view('/uploadcv','front.login.uploadcv')->name('signupUserCv');

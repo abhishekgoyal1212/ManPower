@@ -87,6 +87,20 @@
     background-color: #cf04a9;
     font-weight: 500;
 }
+label.error {
+   display: block;
+    color: #0f151a;
+    font-size: 16px;
+    border-radius: 4px;
+    background-color: #fdeaea;
+    margin-top: 10px;
+    padding: 7.5px 15px;
+}
+input.error, textarea.error {
+    border: 1px dashed red;
+    font-weight: 300;
+    color: red;
+}
 </style>
 <section class="profile-details">
    <div class="container">
@@ -109,9 +123,10 @@
                   </h2>
                </header>
                <div class="login-info">
-                  <h3>Full Name</h3>
-                  <span><i class="fa fa-envelope-o" aria-hidden="true"></i>Email I'd</span>
-                  <span class="login-preview">FN</span>
+                  <h3>{{ucfirst($current_data->first_name)}} {{ucfirst($current_data->last_name)}}</h3>
+                  <span><i class="fa fa-phone" aria-hidden="true"></i>+91-{{$current_data->mobile}}</span><br>
+                  <span><i class="fa fa-envelope-o" aria-hidden="true"></i>{{$current_data->email}}</span>
+                  <span class="login-preview">{{ucfirst(substr($current_data->first_name,0,1))}}{{ucfirst(substr($current_data->last_name,0,1))}}</span>
                </div>
                <div class="modal fade about-modal" id="exampleModalCenter-one" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                   <div class="modal-dialog modal-dialog-centered" role="document">
@@ -123,69 +138,81 @@
                            </button>
                         </div>
                         <div class="modal-body">
-                           <form>
+                        <form id="candidate_about" method="post" action="{{route('CandidateAbout')}}">
+                              @csrf
                               <div class="row">
                                  <div class="col">
-                                    <label class="d-block font-weight-bold">First name</label>
-                                    <input type="text" name="forname" class="w-100" >
+                                    <label class="d-block font-weight-bold" for="firstname">First name</label>
+                                    <input type="text" name="first_name" class="w-100" value="{{$current_data->first_name}}">
                                  </div>
                                  <div class="col">
-                                    <label class="d-block font-weight-bold">Last name</label>
-                                    <input type="text" name="surname" class="w-100">
+                                    <label class="d-block font-weight-bold" for="lastname">Last name</label>
+                                    <input type="text" name="last_name" class="last_name w-100" value="{{$current_data->last_name}}">
                                  </div>
                               </div>
                               <div class="row">
                                  <div class="col">
-                                    <label class="d-block font-weight-bold">Phone number</label>
-                                    <input type="text" name="surname" class="w-100">
+                                    <label class="d-block font-weight-bold" for="mobile">Phone number</label>
+                                    <input type="text" name="mobile" class="w-100" value="@if(!empty($current_data)){{$current_data->mobile}}@else''@endif">
                                  </div>
                               </div>
                               <div class="row">
                                  <div class="col-12">
                                     <div class="edit-location">
                                        <div class="location-title">
-                                          <h4 class="mb-0">Your current location</h4>
+                                       <div class="current-location">
+                                          <h4 class="mb-0">Your current location<br>
+                                          <span style="font-weight: normal;">
+                                          @foreach (DB::table('cities')->where('id', $current_data->city)->get()->toArray() as $items)
+                                          {{$items->name}}
+                                          @endforeach</span></h4>
+                                       </div>
                                           <button type="button" class="EditButtonModal">Edit <i class="fa fa-angle-down" aria-hidden="true"></i></button>
                                        </div>
                                        <div class="toggle-location">
                                           <div>
                                              <label class="d-block font-weight-bold">Country</label>
-                                             <select class="w-100">
-                                                <option>United Kingdom</option>
-                                                <option>Ireland</option>
-                                                <option>Afghanistan</option>
-                                                <option>Akrotiri</option>
-                                                <option>Albania</option>
-                                                <option>Algeria</option>
-                                                <option>Andorra</option>
-                                                <option>Angola</option>
-                                                <option>Anguilla</option>
-                                                <option>Antigua and Barbuda</option>
-                                                <option>Argentina</option>
-                                                <option>Armenia</option>
-                                                <option>Aruba</option>
-                                                <option>Australia</option>
-                                                <option>Austria</option>
-                                                <option>Azerbaijan</option>
-                                                <option>Bahamas</option>
-                                                <option>Bahrain</option>
-                                                <option>Bangladesh</option>
-                                                <option>Barbados</option>
+                                               
+                                             <select class="w-100" name="country">
+                                                 <option value="">Please Select</option>
+                                                      @if(!empty($country_data))
+                                                      @foreach($country_data as $key => $countries)
+                                                      <option value="{{$countries['id']}}" {{$current_data->country == $countries['id']? 'selected':''}}>{{$countries['name']}}</option>
+                                                      @endforeach
+                                                      @endif
+                                             </select>
+                                          </div>
+                                          <div>
+                                             <label class="d-block font-weight-bold">State</label>
+                                             <select class="state w-100" name="state" id="state">
+                                             <option value="">Please Select</option>
+                                                   @foreach (DB::table('states')->where('country_id', $current_data->country)->get()->toArray() as $items)
+                                                   <option value="{{ $items->id }}"
+                                                    @if ($items->id == $current_data->state) selected @endif>{{ $items->name }}
+                                                   </option>
+                                                   @endforeach
                                              </select>
                                           </div>
                                           <div>
                                              <label class="d-block font-weight-bold">Town</label>
-                                             <input type="text" name="surname" class="w-100">
+                                             <select class="city w-100" name="city" id="city">
+                                             <option value="">Please Select</option>
+                                              @foreach (DB::table('cities')->where('state_id', $current_data->state)->get()->toArray() as $items)
+                                                   <option value="{{ $items->id }}"
+                                                    @if ($items->id == $current_data->city) selected @endif>{{ $items->name }}
+                                                   </option>
+                                                   @endforeach
+                                             </select>    
                                           </div>
                                        </div>
                                     </div>
                                  </div>
                               </div>
+                              <div class="modal-footer">
+                              <button type="button" class="btn" data-dismiss="modal">Close</button>
+                              <button type="submit" id="submit" class="btn btn-primary">Save changes</button>
+                              </div>
                            </form>
-                        </div>
-                        <div class="modal-footer">
-                           <button type="button" class="btn" data-dismiss="modal">Close</button>
-                           <button type="button" class="btn btn-primary">Save changes</button>
                         </div>
                      </div>
                   </div>
@@ -651,5 +678,88 @@
       </div>
    </div>
 </section>
+<script>
+$(document).ready(function() {
+   // $('.current-location').show();
+   // $(".EditButtonModal").click(function(){
+   //    $('.current-location').hide();
+   // });
+   $("#candidate_about").validate({
+      errorClass: "error fail-alert",
+      validClass: "valid success-alert",
+         rules: {
+            last_name : {
+                  required: true,
+                  minlength: 3
+                   },
+            first_name:{
+                  required: true,
+                  minlength: 3
+                  },
+            mobile:{
+                  required: true,
+                  number: true,
+                  minlength: 10,
+                  maxlength:10
+            },
+      },
+         messages : {
+            last_name: {
+            minlength: "Last Name should be at least 3 characters",
+             },
+            first_name: {
+            minlength: " First Name should be at least 3 characters",
+             },
+            mobile: {
+               number: "Please enter your age as a numerical value",
+             }
+      }
+   });
+
+   
+   $('select[name="country"]').change(function(e) {
+            e.preventDefault();
+           var country_id = $(this).val();
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            $.ajax({
+                type: "POST",
+                url: "{{ route('show.state') }}",
+                data: {
+                    'country_id': country_id,
+                },
+                success: function(response) {
+                    console.log(response);
+                    $('.state').html(response);
+                }
+            });
+        });
+
+
+        $('select[name="state"]').change(function(e) {
+            e.preventDefault();
+            var state_id = $(this).val();
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            $.ajax({
+                type: "POST",
+                url: "{{ route('show.city') }}",
+                data: {
+                    'state_id': state_id,
+                },
+                success: function(response) {
+                    console.log(response);
+                    $('.city').html(response);
+                }
+            });
+        });
+   });
+</script>
 <x-js></x-js>
 @stop
