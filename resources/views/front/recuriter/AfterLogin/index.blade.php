@@ -90,7 +90,7 @@
                                         </ul>
                                         
                                         <div class="Test">
-                                            {{$current_data->first_name}}
+                                            {{$current_recuriter_data->first_name}}
                                             <div class="Test_Menu">
                                                 <ul>
                                                     <a href="{{route('Recuriter.Account')}}"><li>Account settings</li></a>

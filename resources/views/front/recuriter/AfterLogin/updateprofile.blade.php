@@ -14,7 +14,7 @@
                 <h2>Sign in details</h2>
                 <div class="edit-lable-section edit-details-show1">
                     <label for="#">Email address</label>
-                    <span class="value mr-2">{{$current_data->email}}</span>
+                    <span class="value mr-2">{{$current_recuriter_data->email}}</span>
                     <a href="#" id="edit-details-show" class="refer-a">Edit</a>
                 </div>
                 <div id="edit-details-contant-show" class="msg">
@@ -68,15 +68,15 @@
                 <div class="edit-lable-section1">
                     <div class="edit-lable-section">
                         <label for="#">First name</label>
-                        <span class="value">{{$current_data->first_name}} </span>
+                        <span class="value">{{$current_recuriter_data->first_name}} </span>
                     </div>
                     <div class="edit-lable-section">
                         <label for="#">last name</label>
-                        <span class="value">{{$current_data->last_name}}</span>
+                        <span class="value">{{$current_recuriter_data->last_name}}</span>
                     </div>
                     <div class="edit-lable-section">
                         <label for="#">Phone</label>
-                        <span class="value">{{$current_data->mobile}}</span>
+                        <span class="value">{{$current_recuriter_data->mobile}}</span>
                     </div>
                     <div class="edit-lable-section">
                         <label for="#">Recruitment area</label>
@@ -84,11 +84,11 @@
                     </div>
                     <div class="edit-lable-section">
                         <label for="#">Number of employees</label>
-                        <span class="value">{{$current_data->company_size}}</span>
+                        <span class="value">{{$current_recuriter_data->company_size}}</span>
                     </div>
                     <div class="edit-lable-section">
                         <label for="#">Company name</label>
-                        <span class="value">{{$current_data->company_name}} </span>
+                        <span class="value">{{$current_recuriter_data->company_name}} </span>
                     </div>
                     <div class="edit-lable-section">
                         <input type="submit" value="Edit" id="edit-password1-show" class="edit-User-details-btn">
@@ -99,14 +99,14 @@
             <fieldset id="edit-password-contant1-show" class="msg">
                 <div class="edit-lable-section">
                     <label for="#">First name</label>
-                    <span class="value"><input type="text" value="{{$current_data->first_name}}"> </span>
+                    <span class="value"><input type="text" value="{{$current_recuriter_data->first_name}}"> </span>
                 </div>
                 <div class="edit-lable-section">
                     <label for="#">last name</label>
-                    <span class="value"><input type="text" value="{{$current_data->last_name}}"> </span>
+                    <span class="value"><input type="text" value="{{$current_recuriter_data->last_name}}"> </span>
                 </div>
                 <div class="edit-lable-section">
-                    <label for="#">Phone</label> <span class="value"><input type="text" value="{{$current_data->mobile}}"> </span>
+                    <label for="#">Phone</label> <span class="value"><input type="text" value="{{$current_recuriter_data->mobile}}"> </span>
                 </div>
                 <div class="edit-lable-section">
                     <label for="#">Recruitment area</label>
@@ -172,7 +172,7 @@
                 </div>
                 <div class="edit-lable-section">
                     <label for="#">Company name</label>
-                    <span class="value"><input type="text" value="{{$current_data->company_name}}"> </span>
+                    <span class="value"><input type="text" value="{{$current_recuriter_data->company_name}}"> </span>
                 </div>
                 <div class="edit-lable-section">
                     <input type="submit" value="Cancel" id="edit-password1-hide" class="edit-sign-contant-btn">
