@@ -22,7 +22,7 @@ class Employer
                 $current_data = Auth::guard('jobseeker')->user();
                 View::share(compact('current_data'));        
             }elseif(Auth::guard('employer')->check() == true){
-                $current_data = Auth::guard('employer')->user();
+                $current_recuriter_data = Auth::guard('employer')->user();
                 View::share(compact('current_data'));
             }
             return $next($request);

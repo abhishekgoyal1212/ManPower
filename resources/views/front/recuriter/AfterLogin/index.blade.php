@@ -38,8 +38,7 @@
         
     </head>
 
-    @if(!empty($current_data->first_name))
-
+    @if(!empty($current_recuriter_data->first_name))
     <body class="background-lightgray">
         <div class="Account_Details">
                 <div class="container">
