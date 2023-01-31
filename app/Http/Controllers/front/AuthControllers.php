@@ -93,17 +93,20 @@ class AuthControllers extends Controller
         }
     }
 
-    public function front_logout()
+
+    public function front_logout_jobseeker()
     {
         if (Auth::guard('jobseeker')->check()) {
             Auth::guard('jobseeker')->logout();
             session()->forget('SignUpUser');            
             return redirect()->route('home');
-        }if (Auth::guard('employer')->check()) {
+        }
+    }
+    public function front_logout_recuriter()
+    {
+        if (Auth::guard('employer')->check()) {
             Auth::guard('employer')->logout();
             return redirect()->route('Recuriter.Home');
-        }else{
-            return redirect()->route('home');
         }
     }
 

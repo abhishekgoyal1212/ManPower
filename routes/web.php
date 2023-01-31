@@ -130,5 +130,6 @@ Route::prefix('admin')->middleware('auth:admin')->group(function(){
 });
 /*-----------Admin And User Panel Logout--------------*/; 
 Route::get('/logout',[AuthController::class,'logout'])->name('admin.logout');
-Route::get('/logout-user',[AuthControllers::class,'front_logout'])->name('front.logout');
+Route::get('/logout-user-jobseeker',[AuthControllers::class,'front_logout_jobseeker'])->name('front.logout.jobseeker');
+Route::get('/logout-user-recuriter',[AuthControllers::class,'front_logout_recuriter'])->name('front.logout.recuriter');
 

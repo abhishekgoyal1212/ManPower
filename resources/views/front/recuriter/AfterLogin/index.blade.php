@@ -99,7 +99,7 @@
                                                     <a href="{{route('Recuriter.Advicer')}}"><li>Recruiter Advice</li></a>
                                                     <a href="#"><li>Contact us</li></a>
                                                     <a href="{{route('Recuriter.Help')}}"><li>Help</li></a>
-                                                    <a href="{{route('front.logout')}}"><li>Sign out</li></a>
+                                                    <a href="{{route('front.logout.recuriter')}}"><li>Sign out</li></a>
                                                 </ul>
                                             </div>
                                         </div>

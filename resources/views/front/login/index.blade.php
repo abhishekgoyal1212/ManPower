@@ -83,7 +83,7 @@
                                             <li><a href="#">Get the Job Search app</a></li>
                                             <li><a href="#">Course purchase history</a></li>
                                             <li><a href="#">Account</a></li>
-                                            <a href="{{route('front.logout')}}"><li>Sign out</li></a>
+                                            <a href="{{route('front.logout.jobseeker')}}"><li>Sign out</li></a>
                                         </ul>
                                     </div>
                                 </ul>
