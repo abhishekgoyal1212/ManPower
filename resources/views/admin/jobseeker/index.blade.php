@@ -62,7 +62,8 @@
                                      <a class="badge badge-danger text-white cursor-pointer" class="text-danger" onclick="confirm_box_status('active','{{$single_info->id}}','{{route('admin.dashboard.activeInactive')}}',this,'JobSeekers','JobSeeker')"><strong>Inactive</strong></a>
                                      @endif
                                  </td>
-                                 <td><a href="{{route('admin.jobseeker.addOrEdit',$single_info->id)}}"><button type="button" class="btn btn-block bg-gradient-primary btn-xs my-1">Edit</button></a>
+                                 <td><a href="{{route('admin.jobseeker.addOrEdit',$single_info->id)}}">
+                                    <button type="button" class="btn btn-block bg-gradient-primary btn-xs my-1">Edit</button></a>
                                     <a href="javascript::voide()" onclick="details_page('{{$single_info->id}}','{{route('admin.jobseeker.index')}}'),this"><button type="button" class="btn btn-block bg-gradient-danger btn-xs my-1" >Details</button></a>
                                 </td>
                             @endforeach

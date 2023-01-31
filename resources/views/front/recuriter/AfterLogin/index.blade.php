@@ -1,3 +1,24 @@
+<style>
+    h6.cart-number {
+    margin: 0px 0px 24px 0;
+    /* padding: 1px 4px 5px 5px; */
+    position: absolute;
+    bottom: -7px;
+    /* left: 0; */
+    background-color: #f26232;
+    height: 18px;
+    min-width: 18px;
+    border-radius: 50%;
+    /* display: inline-block; */
+    padding-left: 2px;
+    padding-right: 3px;
+    font-size: 11px;
+    color: #fff;
+    font-weight: 700;
+    line-height: 18px;
+    text-align: center;
+}
+</style>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -59,10 +80,16 @@
                                     </div>
                                     <div class="Account_Details_Icon d-flex  align-items-center">
                                         <ul class="mb-0 pb-0">
-                                            <a href="{{route('Recuriter.Basket')}}"><li><p class="cart-number">
-                                                @if($CartData == 1){{$CartData}}@endif
-                                                </p><img src="{{asset('front-assets/images/manpower-for-recruiter-basket-icon-new.png')}}"></li></a>
+                                            <a href="{{route('Recuriter.Basket')}}"><li>
+                                                <img src="{{asset('front-assets/images/manpower-for-recruiter-basket-icon-new.png')}}">
+                                                <h6 class="cart-number">
+                                                    @if(!empty($CartData))
+                                                    {{count($CartData)}}@endif
+                                                    </h6>
+                                            </li>
+                                            </a>
                                         </ul>
+                                        
                                         <div class="Test">
                                             {{$current_data->first_name}}
                                             <div class="Test_Menu">

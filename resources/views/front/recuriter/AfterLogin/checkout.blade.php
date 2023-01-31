@@ -22,7 +22,6 @@
                     <div class="col-md-2 col-4">
                         <div class="Account_Details_Logo w-100 ml-0">
                    <a href="{{route('Recuriter.RecruiterPage')}}"><img src="{{asset('front-assets/images/logo.png')}}" class="img-fluid"></a>
-
                         </div>
                     </div>
                     <div class="col-8 col-md-10 text-right">
@@ -51,22 +50,22 @@
                             <form>
                                 <div class="Checkout_Left_Form">
                                     <label>First Name</label>
-                                    <input type="" name="" value="testing01">
+                                    <input type="" name="" value="{{$current_data->first_name}}">
                                 </div>
                                  <div class="Checkout_Left_Form">
                                     <label>Last Name</label>
-                                    <input type="" name="" value="testing01">
+                                    <input type="" name="" value="{{$current_data->last_name}}">
                                 </div>
                                  <div class="Checkout_Left_Form">
                                     <label>Email</label>
-                                    <input type="" name="" value="testing01">
+                                    <input type="" name="" value="{{$current_data->email}}">
                                 </div>
                                  <div class="Checkout_Left_Form">
                                     <label>Building number/name</label>
-                                    <input type="" name="" value="testing01">
+                                    <input type="" name="" value="">
                                 </div>
                                 <div class="Postcode">
-        
+
                                     <div class="position-relative">
                                     <label>Postcode
                                         <img src="{{asset('front-assets/images/checkout-info')}}.svg" id="show">
@@ -115,32 +114,34 @@
                     <div class="col-lg-4 col-xl-3 px-xl-3 pr-lg-2 pl-lg-3 px-0 mt-3 mt-lg-0">
                         <div class="order-summary">
                             <h2>Your order summary</h2>
+                            @foreach($CartData as $item)
+                            
                             <div class="Premium_Job_Payment">
-                                <p class="mb-0">Premium+ Job <span>89NEWCUST</span></p>
+                                <p class="mb-0">{{$item->type}}</p>
                                 
-                                <p class="mb-0">Qty: <b>1</b></p>
+                                <p class="mb-0">Qty: <b>{{$item->quantity}}</b></p>
                             </div>
         
         
                              <div class="Premium_Job_Price">
                                 <p class="mb-0">Price:</p>
-                                <span>£89.00</span>
-                                <p class="mb-0 was"><b>(was £175.00)</b></p>
+                                <span>£{{$item->price}}.00</span>
                             </div>
+                            @endforeach
         
                             <div class="order-summary-Total-excluding">
                                 <ul>
                                     <li>Total excluding VAT:</li>
-                                    <li>£89.00</li>
+                                    <li>£{{$item->sum('price')}}</li>
                                     <li>VAT:</li>
-                                    <li>£17.80</li>
+                                    <li>£50.00</li>
                                     <li>Discount:</li>
-                                    <li><b>- £86.00</b></li>
+                                    <li><b>- £{{$item->sum('save')}}</b></li>
                                 </ul>
                                  <div class="order-Summary-Total">
                                 <ul>
                                     <li>Total:</li>
-                                    <li>£106.80</li>
+                                    <li>£{{$item->sum('price') + 50.00}}</li>
                                 </ul>
                             </div>
                             </div>

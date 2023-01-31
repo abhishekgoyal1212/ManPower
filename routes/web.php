@@ -57,7 +57,6 @@ Route::controller(AuthControllers::class)->middleware('front_guest')->name('fron
     Route::post('/login-dashboard','login_user')->name('loginUser');
     Route::post('/sign-up-user-save','signup_form_first')->name('signupUserSaveForm');
 });
- 
 Route::prefix('recuriter')->controller(RecuriterController::class)->middleware('employer')->name('Recuriter.')->group(function(){
     Route::post('sign-up-save','recuriter_save')->name('RegisterFrom');
     Route::post('sign-save','register')->name('RegisterSave');

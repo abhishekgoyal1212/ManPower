@@ -12,7 +12,7 @@
         <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.0/css/toastr.css" rel="stylesheet" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.0/js/toastr.js"></script>
 
-        <title>@yield('title')</title>
+        <title>Your Order - {{Request::root()}}/Recruiter </title>
         
     </head>
 <body>
@@ -133,20 +133,17 @@
                      </div>
             </div>
             <div class="Products_Quantity">
+                @foreach($CartData as $item)
                 <div class="row border-bottom pb-3">
                     <div class="col-md-6 col-6">
-                        <p>Premium+ Job
+                        <p>{{$item->type}}
                             <img src="{{asset('front-assets/images/Premium.png')}}">
                         </p>
-                        <span class="NEWCUST">
-                            89NEWCUST
-
-                        </span>
                     </div>
                     <div class="col-4 text-right Quantity_Section_Mobile ">
                         <div class="Quantity_Section">
-                            <span>1</span>
-                            <i class="fa fa-trash-o"></i>
+                            <span>{{$item->quantity}}</span>
+                            <i class="fa fa-trash-o" onclick="checkout('{{$item->id}}')"></i>
 
                         </div>
                     </div>
@@ -154,8 +151,8 @@
 
                      <div class="col-md-2 col-6 text-right">
                         <div class="Price_Section">
-                            <p>£89.00</p>
-                            <span>(was £175)</span>
+                            <p>£{{$item->price}}.00</p>
+                            
                         </div>
                     </div>
 
@@ -166,7 +163,11 @@
                         </div>
 
                 </div>
-                  <div class="Product-Description">
+                @endforeach
+
+
+        <div class="Product-Description">
+            @if(!empty($item))
             <div class="row justify-content-between">
                 <div class="col-md-5  col-md-6 pl-0">
                     <div class="code">
@@ -177,12 +178,11 @@
                     </div>
                 </div>
 
-
                 <div class="col-md-5 col-md-6 text-right pr-0">
                     <div class="Discount">
                     <ul>
                         <li>Discount:</li>
-                        <li>- £86.00</li>
+                        <li>- £{{$item->sum('save')}}</li>
                     </ul>
                     </div>
                 </div>
@@ -199,9 +199,9 @@
                     <div class="Total-excluding ">
                     <ul>
                         <li>Total excluding VAT:</li>
-                        <li>£89.00</li>   
+                        <li>£{{$item->sum('price')}}</li>   
                         <li>VAT:</li>
-                        <li>£17.80</li>
+                        <li>£50.00</li>
                     </ul>
                     </div>
                 </div>
@@ -215,7 +215,7 @@
                     <div class="Total-Amount">
                         <ul>
                             <li>Total:  </li>
-                            <li>£106.80</li>
+                            <li>£{{$item->sum('price') + 50.00}} </li>
                         </ul>
                     </div>
                 </div>
@@ -231,11 +231,11 @@
                     </div>
                 </div>
             </div>
-
+            @endif
 
 
             <div class="Having_problems">
-                <a href="#">
+                <a href="{{route('Recuriter.PostJob')}}">
                     <i class="fa fa-angle-left"></i>
 
                     Back to all products
@@ -250,6 +250,23 @@
       
     </div>
 </div>
+<script>
+    function checkout(DeleteId){
+        event.preventDefault();
+        var DeleteId = DeleteId;
+        var thisdata = $(this);
+        $.ajax({
+                url : "{{route('Recuriter.AddCart')}}",
+                type: 'POST',
+                data: {
+                    "_token" : "{{csrf_token()}}", DeleteId:DeleteId,              
+                },
+                success: $.proxy(function(response){
+                location.reload(true);
+                })
+            });
+    }
+</script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="{{asset('front-assets/js/slim.min.js')}}"></script>
     <script src="{{asset('front-assets/js/bootstrap.min.js')}}"></script>

@@ -118,48 +118,90 @@
             <div class="col-lg-4 col-12 info-credits-content">
                 <form id="cart_section_secend">
                 <div class="info-credits-content-top">
-                    <h3 class="font-weight-bold">Premium job</h3>
-                    <h4 class="mb-0 font-weight-bold">£150 <span> + VAT</span></h4>
+                    <h3 class="font-weight-bold">Premium+ job</h3>
+                    <h4 class="mb-0 font-weight-bold">£175<span> + VAT</span></h4>
                     <div class="qty-container">
                 <button class="qty-btn-minus" type="button"><i class="bi bi-dash-lg"></i></button>
                 <input type="text" name="qty" value="1" class="input-qty">
                 <button class="qty-btn-plus" type="button"><i class="bi bi-plus-lg"></i></button>
             </div>
-            <p class="font-weight-bold mb-2">Total Price £150 <span> + VAT</span></p>
+            <input type="hideen" name="price" id="" value="175" hidden>
+            <input type="hideen" name="save" id="" value="0" hidden>
+            <input type="hideen" name="type" id="" value="Premium plus job" hidden>
+            <p class="font-weight-bold mb-2">Total Price £175 <span> + VAT</span></p>
             
             <h6 class="font-weight-bold mb-2">Save £</h6>
-            <button class="my-cart-btn">Add to basket</button>
+            <button class="my-cart-btn-sec">Add to basket</button>
         </form>
 
             <span class="premium-jobs" id="premium-jobs-one">Premium job features <i class="fa fa-chevron-down px-1" aria-hidden="true"></i></span>
                 </div>
-                <ul class="credit-features list-unstyled" id="premium-content-one">
+                
+                <ul class="credit-features list-unstyled" id="premium-content-two">
+                 <li>
+                      <i class="fa fa-check" aria-hidden="true"></i>
+                      <p class="text-center font-weight-bold">Includes everything you get with a Premium job and...</p>
+                   </li>
                     <li>
                         <i class="fa fa-check" aria-hidden="true"></i>
-                        <p class="ml-1">Use anytime within 12 months</p>
+                        <p class="ml-1">Your job emailed to up to 100 best matching candidates</p>
                     </li>
                     <li>
                         <i class="fa fa-check" aria-hidden="true"></i>
-                        <p class="ml-1">Job live for up to six weeks</p>
-                    </li>
-                    <li>
-                        <i class="fa fa-check" aria-hidden="true"></i>
-                        <p class="ml-1">Applications straight to your inbox</p>
-                    </li>
-                    <li>
-                        <i class="fa fa-check" aria-hidden="true"></i>
-                        <p class="ml-1">Included in job alert emails to candidates</p>
-                    </li>
-                    <li>
-                        <i class="fa fa-check" aria-hidden="true"></i>
-                        <p class="ml-1">Branded company profile and applicant management tools</p>
-                    </li>
-                    <li>
-                        <i class="fa fa-check" aria-hidden="true"></i>
-                        <p class="ml-1">Use screening questions to filter applications faster</p>
+                        <p class="ml-1">Link to your own application form from your ad</p>
                     </li>
                 </ul>
             </div>
+
+
+            <div class="col-lg-4 col-12 info-credits-content">
+                <form id="cart_section_third">
+                <div class="info-credits-content-top">
+                    <h3 class="font-weight-bold">Featured job</h3>
+                    <h4 class="mb-0 font-weight-bold">£250<span> + VAT</span></h4>
+                    <div class="qty-container">
+                <button class="qty-btn-minus" type="button"><i class="bi bi-dash-lg"></i></button>
+                <input type="text" name="qty" value="1" class="input-qty">
+                <button class="qty-btn-plus" type="button"><i class="bi bi-plus-lg"></i></button>
+            </div>
+            <input type="hideen" name="price" id="" value="250" hidden>
+            <input type="hideen" name="save" id="" value="0" hidden>
+            <input type="hideen" name="type" id="" value="Featured job" hidden>
+            <p class="font-weight-bold mb-2">Total Price £250 <span> + VAT</span></p>
+            
+            <h6 class="font-weight-bold mb-2">Save £</h6>
+            <button class="my-cart-btn-third">Add to basket</button>
+        </form>
+
+            <span class="premium-jobs" id="premium-jobs-one">Premium job features <i class="fa fa-chevron-down px-1" aria-hidden="true"></i></span>
+                </div>
+                
+                <ul class="credit-features list-unstyled" id="premium-content-two">
+                    <li>
+                        <i class="fa fa-check" aria-hidden="true"></i>
+                        <p class="text-center font-weight-bold">Includes everything you get with a Premium job and...</p>
+                     </li>
+                 <li>
+                      <i class="fa fa-check" aria-hidden="true"></i>
+                      <p class="text-center font-weight-bold">Your job promoted on rotation at the top of the search results</p>
+                   </li>
+                    <li>
+                        <i class="fa fa-check" aria-hidden="true"></i>
+                        <p class="ml-1">Showcase your company by adding pictures and videos to your job ad</p>
+                    </li>
+                    <li>
+                        <i class="fa fa-check" aria-hidden="true"></i>
+                        <p class="ml-1">Your job emailed up to 250 best matching candidates</p>
+                    </li>
+                    <li>
+                        <i class="fa fa-check" aria-hidden="true"></i>
+                        <p class="ml-1">Link to your own application form from your ad</p>
+                    </li>
+                </ul>
+            </div>
+
+
+
         </div>
     </div>
     
@@ -242,11 +284,44 @@
                 url : "{{route('Recuriter.AddCart')}}",
                 type: 'POST',
                 data: {
+                    "_token" : "{{csrf_token()}}", cart_data:cart_data,              
+                },
+                success: $.proxy(function(response){
+                    //  var count_cart_value =  Object.keys(response).length;
+                    //  $('.cart-number').text(count_cart_value);
+                     $('.cart-number').text(response.success);
+                })
+            });
+    });
+    $(".my-cart-btn-sec").click(function(event){
+            event.preventDefault();
+            var cart_data =   $("#cart_section_secend").serialize();
+        $.ajax({
+                url : "{{route('Recuriter.AddCart')}}",
+                type: 'POST',
+                data: {
                     "_token" : "{{csrf_token()}}", cart_data:cart_data,                
                 },
                 success: $.proxy(function(response){
-                     var count_cart_value =  Object.keys(response).length;
-                     $('.cart-number').text(count_cart_value);
+                    //  var count_cart_value =  Object.keys(response).length;
+                    //  console.log(count_cart_value);
+                     $('.cart-number').text(response.success);
+                })
+            });
+    });
+    $(".my-cart-btn-third").click(function(event){
+            event.preventDefault();
+            var cart_data =   $("#cart_section_third").serialize();
+        $.ajax({
+                url : "{{route('Recuriter.AddCart')}}",
+                type: 'POST',
+                data: {
+                    "_token" : "{{csrf_token()}}", cart_data:cart_data,                
+                },
+                success: $.proxy(function(response){
+                    //  var count_cart_value =  Object.keys(response).length;
+                    //  console.log(count_cart_value);
+                     $('.cart-number').text(response.success);
                 })
             });
     });
