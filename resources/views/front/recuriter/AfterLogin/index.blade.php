@@ -277,6 +277,49 @@
     {{-- Toster Code --}}
     <script>
         $(document).ready(function() {
+            $('#edit-details-show').click(function(){
+            $('#edit-details-contant-show').show();
+            $('.edit-details-show1').hide();
+            })
+            $('#edit-details-hide').click(function(){
+            $('#edit-details-contant-show').hide();
+            $('.edit-details-show1').show();
+            })
+        })
+       
+        $(document).ready(function() {
+            $('#edit-password-show').click(function(){
+            $('#edit-password-contant-show').show();
+            $('.edit-sign-show1').hide();
+            })
+            $('#edit-password-hide').click(function(){
+            $('#edit-password-contant-show').hide();
+            $('.edit-sign-show1').show();
+            })
+        })
+       
+        $(document).ready(function() {
+            $('#edit-password1-show').click(function(){
+            $('#edit-password-contant1-show').show();
+            $('.edit-lable-section1').hide();
+            })
+            $('#edit-password1-hide').click(function(){
+            $('#edit-password-contant1-show').hide();
+            $('.edit-lable-section1').show();
+            })
+        })
+
+
+        $(document).ready(function() {
+            $('#edit-Preferences-show').click(function(){
+            $('#edit-Preferences-contant-show').show();
+            })
+            $('#edit-Preferences-hide').click(function(){
+            $('#edit-Preferences-contant-show').hide();
+            })
+        })
+    <script>
+        $(document).ready(function() {
             @if (Session::has('flash-error'))
                 toastr.error('{{ Session::get('flash-error') }}');
             @elseif(Session::has('flash-success'))

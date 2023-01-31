@@ -80,7 +80,7 @@ Route::prefix('recuriter')->controller(RecuriterController::class)->middleware('
     });
     Route::middleware('RecuriterLoginCheck')->group(function(){
         Route::view('/','front/recuriter/AfterLogin/recruiter')->name('RecruiterPage');
-        Route::view('/account/edit','front/recuriter/AfterLogin/accountadit')->name('AccountEdit');
+        Route::view('/account/edit','front/recuriter/AfterLogin/updateprofile')->name('AccountEdit');
         Route::view('/account','front/recuriter/AfterLogin/account')->name('Account');
         Route::view('recruiter/account/credits/','front/recuriter/AfterLogin/PostJob')->name('PostJob');
         Route::view('/checkout','front/recuriter/AfterLogin/checkout')->name('Checkout');

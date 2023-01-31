@@ -11,7 +11,7 @@
                         <div class="Account_Details_Col">
                             <div class="testing">
                                 <h5>testing01 01</h5>
-                                <a href="#">Change settings</a>
+                                <a href="{{route('Recuriter.AccountEdit')}}">Change settings</a>
                             </div>
 
                             <ul>
