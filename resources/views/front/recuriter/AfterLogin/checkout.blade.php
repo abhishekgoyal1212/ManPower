@@ -50,15 +50,15 @@
                             <form>
                                 <div class="Checkout_Left_Form">
                                     <label>First Name</label>
-                                    <input type="" name="" value="{{$current_data->first_name}}">
+                                    <input type="" name="" value="{{$current_recuriter_data->first_name}}">
                                 </div>
                                  <div class="Checkout_Left_Form">
                                     <label>Last Name</label>
-                                    <input type="" name="" value="{{$current_data->last_name}}">
+                                    <input type="" name="" value="{{$current_recuriter_data->last_name}}">
                                 </div>
                                  <div class="Checkout_Left_Form">
                                     <label>Email</label>
-                                    <input type="" name="" value="{{$current_data->email}}">
+                                    <input type="" name="" value="{{$current_recuriter_data->email}}">
                                 </div>
                                  <div class="Checkout_Left_Form">
                                     <label>Building number/name</label>
@@ -110,7 +110,6 @@
                             </div>
                         </div>
                     </div>
-        
                     <div class="col-lg-4 col-xl-3 px-xl-3 pr-lg-2 pl-lg-3 px-0 mt-3 mt-lg-0">
                         <div class="order-summary">
                             <h2>Your order summary</h2>
